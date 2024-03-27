@@ -1,0 +1,34 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        // URL de l'API à partir de laquelle nous voulons récupérer des données
+const apiUrl = 'https://jsonplaceholder.typicode.com/posts';
+
+// Utilisation de Fetch pour envoyer une requête GET à l'API
+fetch(apiUrl)
+  .then(response => {
+    // Vérification de la réponse HTTP (statut de la réponse)
+    if (!response.ok) {
+      throw new Error('Erreur HTTP ' + response.status);
+    }
+    // Récupération des données JSON à partir de la réponse
+    return response.json();
+  })
+  .then(data => {
+    // Traitement des données récupérées
+    console.log(data); // Affichage des données dans la console
+    // Vous pouvez faire d'autres opérations avec les données ici
+  })
+  .catch(error => {
+    // Gestion des erreurs
+    console.error('Il y a eu une erreur lors de la récupération des données :', error);
+  });
+
+    </script>
+</body>
